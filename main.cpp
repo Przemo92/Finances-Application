@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-FinancesApplication financesApplication;
-financesApplication.mainMenu();
+    FinancesApplication financesApplication("Users.xml", "Incomes.xml", "Expences.xml");
+
+    financesApplication.mainMenu();
 
 }

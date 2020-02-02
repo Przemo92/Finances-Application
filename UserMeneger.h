@@ -15,32 +15,29 @@ using namespace std;
 class UserMeneger
 {
     vector <User> users;
-    //int idZalogowanegoUzytkownika;
+    int idLogedUser;
 
     AuxiliaryMethods auxiliaryMethods;
-    //UserFile userFile;
+    UserFile userFile;
 
     User setDataForNewUser();
     int downloadUserNewId();
     bool isLoginExist(string login);
-    //Uzytkownik podajDaneNowegoUzytkownika();
-    //int pobierzIdNowegoUzytkownika();
-   // bool czyIstniejeLogin(string login);
-
 
 public:
-    /*UzytkownikMeneger(string nazwaPlikuZUzytkownikami) :plikZUzytkownikami(nazwaPlikuZUzytkownikami)
+    UserMeneger (string nameFileWithUsers)
+    : userFile (nameFileWithUsers)
     {
-        idZalogowanegoUzytkownika = 0;
-        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+        idLogedUser = 0;
+        users = userFile.downloadUsersFormFile();
     };
-    void rejestracjaUzytkownika();
-    void logowanieUzytkownika();
-    void wypiszWszystkichUzytkownikow();//to jest niepotrzebne
-    int pobierzIdZalogowanegoUzytkownika();
-    bool czyUzytkownikJestZalogowany();
+
+    /*void wypiszWszystkichUzytkownikow();//to jest niepotrzebne
     void wylogowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();*/
     void userRegistration();
+    void userLogin();
+    bool isUserLoged();
+    int getIdLogedUser();
 };
 #endif

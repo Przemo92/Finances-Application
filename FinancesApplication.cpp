@@ -5,8 +5,8 @@ void FinancesApplication::mainMenu()
 {
       while (true)
     {
-        //if (!uzytkownikMeneger.czyUzytkownikJestZalogowany())
-        //{
+        if (!userMeneger.isUserLoged())
+        {
             chooseFromMainMenu();
 
             switch (choose)
@@ -15,7 +15,7 @@ void FinancesApplication::mainMenu()
                 userRegistration();
                 break;
             case '2':
-                //logowanieUzytkownika();
+                userLogin();
                 break;
             case '9':
                 exit(0);
@@ -25,15 +25,15 @@ void FinancesApplication::mainMenu()
                 system("pause");
                 break;
             }
-        //}
-        /*else
+        }
+        else
         {
-            wybierzOpcjeZMenuUzytkownika();
+            chooseOptionFromUserMenu();
 
-            switch (wybor)
+            switch (choose)
             {
             case '1':
-                dodajAdresata();
+                //dodajAdresata();
                 break;
             case '2':
                 //wyszukajAdresatowPoImieniu(adresaci);
@@ -42,29 +42,26 @@ void FinancesApplication::mainMenu()
                // wyszukajAdresatowPoNazwisku(adresaci);
                 break;
             case '4':
-                wyswietlWszystkichAdresatow();
+                //wyswietlWszystkichAdresatow();
                 break;
             case '5':
-                 usunAdresata();
+                 //usunAdresata();
                 break;
             case '6':
-                edytujAdresata();
+                //zmianaHaslaZalogowanegoUzytkownika();
                 break;
             case '7':
-                zmianaHaslaZalogowanegoUzytkownika();
-                break;
-            case '8':
-                wylogowanieUzytkownika();
-                cout << endl << "WYLOGOWANO" << endl;
-                system("pause");
+                //wylogowanieUzytkownika();
+                //cout << endl << "WYLOGOWANO" << endl;
+                //system("pause");
                 break;
             }
-        }*/
+        }
     }
 }
 void FinancesApplication::chooseFromMainMenu()
 {
-    system("cls");
+   // system("cls");
     cout << "    >>> MENU  GLOWNE <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Rejestracja" << endl;
@@ -77,4 +74,32 @@ void FinancesApplication::chooseFromMainMenu()
 void FinancesApplication::userRegistration()
 {
     userMeneger.userRegistration();
+}
+void FinancesApplication::userLogin()
+{
+    userMeneger.userLogin();
+    if(userMeneger.isUserLoged())
+    {
+        incomeMeneger = new IncomeMeneger (NAME_FILE_WITH_INCOMES, 5);//userMeneger.getIdLogedUser());
+        expenceMeneger = new ExpenceMeneger (NAME_FILE_WITH_EXPENCES, 5);//userMeneger.getIdLogedUser());
+    }
+}
+void FinancesApplication::chooseOptionFromUserMenu()
+{
+
+    system("cls");
+    cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Dodaj przychod" << endl;
+    cout << "2. Dodaj wydatek" << endl;
+    cout << "3. Bilans z biezacego miesiaca" << endl;
+    cout << "4. Bilans z poprzedniego miesiaca" << endl;
+    cout << "5. Bilans z wybranego okresu" << endl;
+    cout << "---------------------------" << endl;
+    cout << "6. Zmien haslo" << endl;
+    cout << "7. Wyloguj sie" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Twoj wybor: ";
+    choose = auxiliaryMethods.getSign();
+    return;
 }

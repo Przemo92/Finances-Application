@@ -6,7 +6,7 @@ void UserMeneger::userRegistration()
 
     users.push_back(user);
 
-    //plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    userFile.addUserToFile(user);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
@@ -50,4 +50,50 @@ bool UserMeneger::isLoginExist(string login)
         }
     }
     return false;
+}
+void UserMeneger::userLogin()
+{
+    User user;
+    string login = "", haslo = "";
+
+    cout << endl << "Podaj login: ";
+    login = auxiliaryMethods.loadLinie();
+
+    vector <User>::iterator itr = users.begin();
+    while (itr != users.end())
+    {
+        if (itr -> downloadLogin() == login)
+        {
+            for (int numberOfChance = 3; numberOfChance > 0; numberOfChance--)
+            {
+                cout << "Podaj haslo. Pozostalo prob: " << numberOfChance << ": ";
+                haslo = auxiliaryMethods.loadLinie();
+
+                if (itr -> downloadPassword() == haslo)
+                {
+                    idLogedUser = itr -> downloadId();
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    system("pause");
+                    return;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return;
+        }
+        itr++;
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+}
+bool UserMeneger::isUserLoged()
+{
+    if (idLogedUser > 0)
+        return true;
+    else
+        return false;
+}
+int UserMeneger::getIdLogedUser()
+{
+    return idLogedUser;
 }

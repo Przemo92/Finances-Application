@@ -10,12 +10,12 @@ using namespace std;
 class AuxiliaryMethods
 {
     public:
-    //string konwerjsaIntNaString(int liczba);
-    //string wczytajLinie();
+    string changeIntIntoString (int number);
+    string loadLinie();
     char getSign();
     //string pobierzLiczbe(string tekst, int pozycjaZnaku);
-    //int konwersjaStringNaInt(string liczba);
-    //string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    int changeStringIntoInt(string number);
+    string changeFirstLetterIntoCapital(string text);
     //int wczytajLiczbeCalkowita();
 };
 #endif
