@@ -39,5 +39,6 @@ public:
     void mainMenu();
     void chooseFromMainMenu();
     void chooseOptionFromUserMenu();
+    void addIncome();
 };
 #endif

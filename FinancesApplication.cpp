@@ -33,7 +33,7 @@ void FinancesApplication::mainMenu()
             switch (choose)
             {
             case '1':
-                //dodajAdresata();
+                addIncome();
                 break;
             case '2':
                 //wyszukajAdresatowPoImieniu(adresaci);
@@ -80,8 +80,8 @@ void FinancesApplication::userLogin()
     userMeneger.userLogin();
     if(userMeneger.isUserLoged())
     {
-        incomeMeneger = new IncomeMeneger (NAME_FILE_WITH_INCOMES, 5);//userMeneger.getIdLogedUser());
-        expenceMeneger = new ExpenceMeneger (NAME_FILE_WITH_EXPENCES, 5);//userMeneger.getIdLogedUser());
+        incomeMeneger = new IncomeMeneger (NAME_FILE_WITH_INCOMES, userMeneger.getIdLogedUser());
+        expenceMeneger = new ExpenceMeneger (NAME_FILE_WITH_EXPENCES, userMeneger.getIdLogedUser());
     }
 }
 void FinancesApplication::chooseOptionFromUserMenu()
@@ -102,4 +102,16 @@ void FinancesApplication::chooseOptionFromUserMenu()
     cout << "Twoj wybor: ";
     choose = auxiliaryMethods.getSign();
     return;
+}
+void FinancesApplication::addIncome()
+{
+    if (userMeneger.isUserLoged())
+    {
+        incomeMeneger -> addIncome();
+    }
+    else
+    {
+        cout << "Aby dodac adresata nalezy najpierw sie zalogowac "<< endl;
+        system("pause");
+    }
 }

@@ -3,16 +3,19 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
-#include <fstream>
-#include <sstream>
+#include <time.h>
+#include <conio.h>
 
-//#include "Adresat.h"
-//#include "PlikZAdresatami.h"
 #include "AuxiliaryMethods.h"
 
 using namespace std;
 
 class Finance
 {
+AuxiliaryMethods auxiliaryMethods;
+public:
+    int getTodaysDate();
+    int changeTextDateToInteger(string textDate);
+    //bool isCorrectDate (string textDate);////////////do zrobienia
 };
 #endif

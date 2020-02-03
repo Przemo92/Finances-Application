@@ -48,3 +48,23 @@ string AuxiliaryMethods::changeFirstLetterIntoCapital(string text)
     }
     return text;
 }
+double AuxiliaryMethods::downloadDoubleNumber()
+{
+    string inlet = "";
+    double number = 0;
+
+    while (true)
+    {
+        getline(cin, inlet);
+        for (int i=0; i<inlet.length(); i++)
+        {
+            if (inlet[i] == ',')
+            inlet[i] == '.';
+        }
+        stringstream myStream(inlet);
+        if (myStream >> number)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return number;
+}

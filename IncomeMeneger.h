@@ -9,18 +9,19 @@
 #include "Income.h"
 #include "IncomeFile.h"
 #include "AuxiliaryMethods.h"
+#include "Finance.h"
 
 using namespace std;
 
-class IncomeMeneger
+class IncomeMeneger : public Finance
 {
     const int ID_LOGED_USER;
-    //vector <Adresat> adresaci;
+    vector <Income> incomes;
 
     IncomeFile incomeFile;
     AuxiliaryMethods auxiliaryMethods;
 
-   // Adresat podajDaneNowegoAdresata();
+    Income writeNewIncome();
    // void wyswietlDaneAdresata(Adresat adresat);
     //int podajIdWybranegoAdresata();
    // char wybierzOpcjeZMenuEdycja();
@@ -32,7 +33,7 @@ public:
      {
      //adresaci = plikZAdresatami.wczytajAdresatowZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
       };
-     // void dodajAdresata();
+     void addIncome();
      // void wyswietlWszystkichAdresatow();
      // void usunAdresata();
      // void edytujAdresata();
