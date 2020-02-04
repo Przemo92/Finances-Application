@@ -13,9 +13,12 @@ using namespace std;
 class Finance
 {
 AuxiliaryMethods auxiliaryMethods;
+int calculateDaysInMonth(int month, int year);
+
 public:
-    int getTodaysDate();
+    string getTodaysDate();
     int changeTextDateToInteger(string textDate);
-    //bool isCorrectDate (string textDate);////////////do zrobienia
+    bool isCorrectDate (string textDate);
+
 };
 #endif

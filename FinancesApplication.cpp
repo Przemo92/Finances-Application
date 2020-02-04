@@ -87,7 +87,7 @@ void FinancesApplication::userLogin()
 void FinancesApplication::chooseOptionFromUserMenu()
 {
 
-    system("cls");
+    //system("cls");
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Dodaj przychod" << endl;

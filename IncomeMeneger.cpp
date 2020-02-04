@@ -7,13 +7,13 @@ void IncomeMeneger::addIncome()
     system("cls");
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU<<<" << endl << endl;
     income = writeNewIncome();
+    incomes.push_back(income);
 
-    /*adresaci.push_back(adresat);
-    if (plikZAdresatami.dopiszAdresataDoPliku(adresat))
-        cout << "Nowy adresat zostal dodany" << endl;
+    if (incomeFile.addIncomeToFile(income))
+        cout << "Nowy przychod zostal dodany" << endl;
     else
         cout << "Blad nie udalo sie dodac nowego adresata do pliku" << endl;
-    system("pause");*/
+    system("pause");
 }
 Income IncomeMeneger::writeNewIncome()
 {
@@ -21,7 +21,7 @@ Income IncomeMeneger::writeNewIncome()
     char choose;
     string textDate;
 
-    //income.setId ( (plikZAdresatami.pobierzIdOstatniegoAdresata() +1) );
+    income.setId(incomeFile.loadIdLastIncome() +1);
     income.setUserId(ID_LOGED_USER);
 
     cout << "Czy przychod pochodzi z dzsiejszego dnia? (t/n)" <<endl;
@@ -30,16 +30,20 @@ Income IncomeMeneger::writeNewIncome()
         choose = auxiliaryMethods.getSign();
         if (choose == 't')
         {
-            income.setDate(Finance::getTodaysDate());
+            income.setDate(auxiliaryMethods.changeStringIntoInt(getTodaysDate()));
             break;
         }
         else if (choose == 'n')
         {
             cout << "Podaj date dla nowego przychodu w formacie rrrr-mm-dd" <<endl;
             textDate = auxiliaryMethods.loadLinie();
-            income.setDate(Finance::changeTextDateToInteger(textDate));
-
-            break;
+            if (isCorrectDate(textDate) == true)
+            {
+                income.setDate(changeTextDateToInteger(textDate));
+                break;
+            }
+            else
+                cout << "Wpisales blednie date. Czy nadal chcesz skorzystac z dzsiejszej daty? (t/n)" << endl;
         }
         else
         {

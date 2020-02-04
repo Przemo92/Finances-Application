@@ -31,7 +31,7 @@ public:
     IncomeMeneger (string nameFileWithIncomes, int idLogedUser)
     :incomeFile(nameFileWithIncomes), ID_LOGED_USER(idLogedUser)
      {
-     //adresaci = plikZAdresatami.wczytajAdresatowZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+     incomes = incomeFile.downloadIncomesFormFile(ID_LOGED_USER);
       };
      void addIncome();
      // void wyswietlWszystkichAdresatow();

@@ -9,13 +9,15 @@
 
 #include "Income.h"
 #include "AuxiliaryMethods.h"
+#include "Markup.h"
 
 using namespace std;
 
 class IncomeFile
 {
     const string NAME_FILE_WITH_INCOMES;
-    //int idOstatniegoAdresata;
+    int idLastIncome;
+    CMarkup xml;
     //string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
     AuxiliaryMethods auxiliaryMethods;
 
@@ -31,13 +33,15 @@ class IncomeFile
 public:
     IncomeFile(string nameFileWithIncomes) : NAME_FILE_WITH_INCOMES (nameFileWithIncomes)
     {
-        //idOstatniegoAdresata = 0;
+        idLastIncome = 0;
     };
    // bool dopiszAdresataDoPliku(Adresat adresat);
-    //vector <Adresat> wczytajAdresatowZPliku(int idZalogowanegoUzytkownika);
     //int pobierzIdOstatniegoAdresata();
     //void usunWybranegoAdresataZPliku(int idAdresata);
     //void edytujWybranegoAdresataWPliku(Adresat adresat);
+    int loadIdLastIncome();
+    bool addIncomeToFile (Income income);
+    vector <Income> downloadIncomesFormFile(int idLogedUser);
 
 };
 #endif
