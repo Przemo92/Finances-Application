@@ -2,7 +2,6 @@
 #define FINANCE_H
 #include <iostream>
 #include <vector>
-#include <windows.h>
 #include <time.h>
 #include <conio.h>
 

@@ -19,7 +19,7 @@ void Expence::setItem(string newItem)
 {
     item = newItem;
 }
-void Expence::setMoney(double newMoney)
+void Expence::setMoney(float newMoney)
 {
     money = newMoney;
 }
@@ -40,7 +40,7 @@ string Expence::downloadItem()
 {
     return item;
 }
-double Expence::downloadMoney()
+float Expence::downloadMoney()
 {
     return money;
 }

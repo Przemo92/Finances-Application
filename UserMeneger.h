@@ -32,12 +32,11 @@ public:
         users = userFile.downloadUsersFormFile();
     };
 
-    /*void wypiszWszystkichUzytkownikow();//to jest niepotrzebne
-    void wylogowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika();*/
     void userRegistration();
     void userLogin();
     bool isUserLoged();
     int getIdLogedUser();
+    void userLogout();
+    void changePasswordLogedUser();
 };
 #endif

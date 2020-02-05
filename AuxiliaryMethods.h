@@ -16,6 +16,7 @@ class AuxiliaryMethods
     //string pobierzLiczbe(string tekst, int pozycjaZnaku);
     int changeStringIntoInt(string number);
     string changeFirstLetterIntoCapital(string text);
-    double downloadDoubleNumber();
+    float downloadFloatNumber();
+    string changeFloatToString(float number);
 };
 #endif

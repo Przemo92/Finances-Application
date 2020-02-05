@@ -31,7 +31,7 @@ vector <Income> IncomeFile::downloadIncomesFormFile(int idLogedUser)
             income.setItem(xml.GetData());
             cout<< income.downloadItem() <<endl;
             xml.FindElem();//money
-            income.setMoney(auxiliaryMethods.changeStringIntoInt(xml.GetData()));
+            income.setMoney(atof(xml.GetData().c_str()));
             cout<< income.downloadMoney() <<endl;
             xml.OutOfElem();
             incomes.push_back(income);
@@ -64,9 +64,10 @@ bool IncomeFile::addIncomeToFile (Income income)
     xml.AddElem("userId", auxiliaryMethods.changeIntIntoString(income.downloadUserId()));
     xml.AddElem("date", auxiliaryMethods.changeIntIntoString(income.downloadDate()));
     xml.AddElem("item", income.downloadItem());
-    xml.AddElem("money", auxiliaryMethods.changeIntIntoString(income.downloadMoney()));
+    xml.AddElem("money", auxiliaryMethods.changeFloatToString(income.downloadMoney()));
 
     xml.Save(NAME_FILE_WITH_INCOMES);
+    idLastIncome++;
 
     return true;
 }

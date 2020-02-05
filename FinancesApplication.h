@@ -40,5 +40,6 @@ public:
     void chooseFromMainMenu();
     void chooseOptionFromUserMenu();
     void addIncome();
+    void userLogout();
 };
 #endif

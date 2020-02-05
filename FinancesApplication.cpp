@@ -51,9 +51,9 @@ void FinancesApplication::mainMenu()
                 //zmianaHaslaZalogowanegoUzytkownika();
                 break;
             case '7':
-                //wylogowanieUzytkownika();
-                //cout << endl << "WYLOGOWANO" << endl;
-                //system("pause");
+                userLogout();
+                cout << endl << "WYLOGOWANO" << endl;
+                system("pause");
                 break;
             }
         }
@@ -114,4 +114,12 @@ void FinancesApplication::addIncome()
         cout << "Aby dodac adresata nalezy najpierw sie zalogowac "<< endl;
         system("pause");
     }
+}
+void FinancesApplication::userLogout()
+{
+    userMeneger.userLogout();
+    delete incomeMeneger;
+    incomeMeneger = NULL;
+    delete expenceMeneger;
+    expenceMeneger = NULL;
 }

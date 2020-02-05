@@ -97,3 +97,32 @@ int UserMeneger::getIdLogedUser()
 {
     return idLogedUser;
 }
+void UserMeneger::userLogout()
+{
+    idLogedUser = 0;
+}
+void UserMeneger::changePasswordLogedUser()
+{
+    if (idLogedUser > 0)
+    {
+    string newPassword = "";
+    cout << "Podaj nowe haslo: ";
+    newPassword = auxiliaryMethods.loadLinie();
+
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
+    {
+        if (itr -> downloadId() == idLogedUser)
+        {
+            itr -> setPassword (newPassword);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    }
+    else
+    {
+      cout << "Aby zmienic haslo, nalezy najpierw sie zalogowac" << endl;
+      system("pause");
+    }
+}

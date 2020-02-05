@@ -19,7 +19,7 @@ void Income::setItem(string newItem)
 {
     item = newItem;
 }
-void Income::setMoney(double newMoney)
+void Income::setMoney(float newMoney)
 {
     money = newMoney;
 }
@@ -40,7 +40,7 @@ string Income::downloadItem()
 {
     return item;
 }
-double Income::downloadMoney()
+float Income::downloadMoney()
 {
     return money;
 }

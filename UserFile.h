@@ -3,8 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <cstdlib>
 
 #include "User.h"
 #include "Markup.h"
@@ -18,16 +16,12 @@ class UserFile
     CMarkup xml;
     const string NAME_FILE_WITH_USERS;
 
-    //Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
-
-
 public:
     UserFile(string nameFileWithUsers)
         : NAME_FILE_WITH_USERS(nameFileWithUsers){};
 
     void addUserToFile(User user);
     vector <User> downloadUsersFormFile();
-    //void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy);
 
 };
 #endif

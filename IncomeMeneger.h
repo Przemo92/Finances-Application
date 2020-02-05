@@ -2,9 +2,6 @@
 #define INCOMEMENEGER_H
 #include <iostream>
 #include <vector>
-#include <windows.h>
-#include <fstream>
-#include <sstream>
 
 #include "Income.h"
 #include "IncomeFile.h"
@@ -22,10 +19,6 @@ class IncomeMeneger : public Finance
     AuxiliaryMethods auxiliaryMethods;
 
     Income writeNewIncome();
-   // void wyswietlDaneAdresata(Adresat adresat);
-    //int podajIdWybranegoAdresata();
-   // char wybierzOpcjeZMenuEdycja();
-   // void zaktualizujDaneWybranegoAdresata(Adresat adresat);
 
 public:
     IncomeMeneger (string nameFileWithIncomes, int idLogedUser)
@@ -34,9 +27,6 @@ public:
      incomes = incomeFile.downloadIncomesFormFile(ID_LOGED_USER);
       };
      void addIncome();
-     // void wyswietlWszystkichAdresatow();
-     // void usunAdresata();
-     // void edytujAdresata();
 
 };
 #endif

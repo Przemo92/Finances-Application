@@ -55,7 +55,7 @@ Income IncomeMeneger::writeNewIncome()
     income.setItem(auxiliaryMethods.loadLinie());
 
     cout << "Podaj wartosc/wysokosc przychodu: ";
-    income.setMoney(auxiliaryMethods.downloadDoubleNumber());
+    income.setMoney(auxiliaryMethods.downloadFloatNumber());
 
     return income;
 }

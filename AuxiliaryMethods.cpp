@@ -48,10 +48,10 @@ string AuxiliaryMethods::changeFirstLetterIntoCapital(string text)
     }
     return text;
 }
-double AuxiliaryMethods::downloadDoubleNumber()
+float AuxiliaryMethods::downloadFloatNumber()
 {
     string inlet = "";
-    double number = 0;
+    float number = 0;
 
     while (true)
     {
@@ -59,7 +59,7 @@ double AuxiliaryMethods::downloadDoubleNumber()
         for (int i=0; i<inlet.length(); i++)
         {
             if (inlet[i] == ',')
-            inlet[i] == '.';
+            inlet[i] = '.';
         }
         stringstream myStream(inlet);
         if (myStream >> number)
@@ -67,4 +67,15 @@ double AuxiliaryMethods::downloadDoubleNumber()
         cout << "To nie jest liczba. Wpisz ponownie. " << endl;
     }
     return number;
+}
+string AuxiliaryMethods::changeFloatToString(float number)
+{
+    stringstream FloatToStr;
+    string str;
+
+    FloatToStr << number;
+    FloatToStr >> str;
+    FloatToStr.clear();
+
+    return str;
 }
