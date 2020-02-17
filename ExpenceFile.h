@@ -3,41 +3,28 @@
 
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <cstdlib>
-
 
 #include "Expence.h"
 #include "AuxiliaryMethods.h"
+#include "Markup.h"
 
 using namespace std;
 
 class ExpenceFile
 {
     const string NAME_FILE_WITH_EXPENCES;
-    //int idOstatniegoAdresata;
-    //string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
+    int idLastExpence;
+    CMarkup xml;
     AuxiliaryMethods auxiliaryMethods;
-
-    //bool czyPlikJestPusty(fstream &plikTekstowy);
-    //string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    //Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-    //int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    //int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    //int pobierzZPlikuIdOstatniegoAdresata();
-    //void usunPlik(string nazwaPlikuZRozszerzeniem);
-    //void zmienNazwePliku(string staraNazwa, string nowaNazwa);
 
 public:
     ExpenceFile(string nameFileWithExpences) : NAME_FILE_WITH_EXPENCES (nameFileWithExpences)
     {
-        //idOstatniegoAdresata = 0;
+        idLastExpence = 0;
     };
-   // bool dopiszAdresataDoPliku(Adresat adresat);
-    //vector <Adresat> wczytajAdresatowZPliku(int idZalogowanegoUzytkownika);
-    //int pobierzIdOstatniegoAdresata();
-    //void usunWybranegoAdresataZPliku(int idAdresata);
-    //void edytujWybranegoAdresataWPliku(Adresat adresat);
+    int loadIdLastExpence();
+    bool addExpenceToFile (Expence expence);
+    vector <Expence> downloadExpencesFormFile(int idLogedUser);
 
 };
 #endif

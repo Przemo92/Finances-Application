@@ -2,40 +2,43 @@
 #define EXPENCEMENEGER_H
 #include <iostream>
 #include <vector>
-#include <windows.h>
-#include <fstream>
-#include <sstream>
 
 #include "Expence.h"
 #include "ExpenceFile.h"
 #include "AuxiliaryMethods.h"
+#include "TimeMeneger.h"
 
 using namespace std;
 
-class ExpenceMeneger
+class ExpenceMeneger : public TimeMeneger
 {
     const int ID_LOGED_USER;
-    //vector <Adresat> adresaci;
+    vector <Expence> expences;
+    float expencesSum;
+    struct less_than_date
+    {
+        inline bool operator() (Expence& expence1, Expence& expence2)
+        {
+            return (expence1.downloadDate() < expence2.downloadDate());
+        }
+    };
 
     ExpenceFile expenceFile;
     AuxiliaryMethods auxiliaryMethods;
 
-   // Adresat podajDaneNowegoAdresata();
-   // void wyswietlDaneAdresata(Adresat adresat);
-    //int podajIdWybranegoAdresata();
-   // char wybierzOpcjeZMenuEdycja();
-   // void zaktualizujDaneWybranegoAdresata(Adresat adresat);
+    Expence writeNewExpence();
+    void showSortedExpences (vector <Expence> sortedExpences);
 
 public:
     ExpenceMeneger (string nameFileWithExpences, int idLogedUser)
     :expenceFile(nameFileWithExpences), ID_LOGED_USER(idLogedUser)
      {
-     //adresaci = plikZAdresatami.wczytajAdresatowZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+     expences = expenceFile.downloadExpencesFormFile(ID_LOGED_USER);
       };
-     // void dodajAdresata();
-     // void wyswietlWszystkichAdresatow();
-     // void usunAdresata();
-     // void edytujAdresata();
-
+     void addExpence();
+     float downloadExpencesSum();
+     void showExpencesForThisMonth();
+     void showExpencesForLastMonth();
+     void showExpencesForSelectedPeroid();
 };
 #endif

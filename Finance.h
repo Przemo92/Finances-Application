@@ -1,23 +1,28 @@
 #ifndef FINANCE_H
 #define FINANCE_H
-#include <iostream>
-#include <vector>
-#include <time.h>
-#include <conio.h>
 
-#include "AuxiliaryMethods.h"
+#include <iostream>
 
 using namespace std;
 
 class Finance
 {
-AuxiliaryMethods auxiliaryMethods;
-int calculateDaysInMonth(int month, int year);
+    int id, userId, date;
+    string item;
+    float money;
 
 public:
-    string getTodaysDate();
-    int changeTextDateToInteger(string textDate);
-    bool isCorrectDate (string textDate);
+    void setId(int newId);
+    void setUserId(int newUserId);
+    void setDate(int newDate);
+    void setItem(string newItem);
+    void setMoney(float newMoney);
 
+
+    int downloadId();
+    int downloadUserId();
+    int downloadDate();
+    string downloadItem();
+    float downloadMoney();
 };
 #endif

@@ -41,5 +41,10 @@ public:
     void chooseOptionFromUserMenu();
     void addIncome();
     void userLogout();
+    void changePasswordLogedUser();
+    void addExpence();
+    void balanceFromCurrentMonth();
+    void balanceFromLastMonth();
+    void balanceFromSelectedPeroid();
 };
 #endif

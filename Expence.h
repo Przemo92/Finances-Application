@@ -2,12 +2,13 @@
 #define EXPENCE_H
 
 #include <iostream>
+#include "Finance.h"
 
 using namespace std;
 
-class Expence
+class Expence: public Finance
 {
-    int id, userId, date;
+    /*int id, userId, date;
     string item;
     float money;
 
@@ -23,6 +24,6 @@ public:
     int downloadUserId();
     int downloadDate();
     string downloadItem();
-    float downloadMoney();
+    float downloadMoney();*/
 };
 #endif

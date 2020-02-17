@@ -20,21 +20,24 @@ vector <Income> IncomeFile::downloadIncomesFormFile(int idLogedUser)
             xml.IntoElem();
             xml.FindElem();//incomeId
             income.setId(auxiliaryMethods.changeStringIntoInt(xml.GetData()));
-            cout<< income.downloadId() <<endl;
+            //cout<< income.downloadId() <<endl;
             xml.FindElem();//userId
             income.setUserId(auxiliaryMethods.changeStringIntoInt(xml.GetData()));
-            cout<< income.downloadUserId() <<endl;
+            //cout<< income.downloadUserId() <<endl;
             xml.FindElem();//date
             income.setDate(auxiliaryMethods.changeStringIntoInt(xml.GetData()));
-            cout<< income.downloadDate() <<endl;
+            //cout<< income.downloadDate() <<endl;
             xml.FindElem();//item
             income.setItem(xml.GetData());
-            cout<< income.downloadItem() <<endl;
+            //cout<< income.downloadItem() <<endl;
             xml.FindElem();//money
             income.setMoney(atof(xml.GetData().c_str()));
-            cout<< income.downloadMoney() <<endl;
+            //cout<< income.downloadMoney() <<endl;
             xml.OutOfElem();
-            incomes.push_back(income);
+            if (idLogedUser == income.downloadUserId())
+            {
+                incomes.push_back(income);
+            }
             isNextDataExist = xml.FindElem();
         }while(isNextDataExist==true);
         idLastIncome = income.downloadId();

@@ -114,11 +114,12 @@ void UserMeneger::changePasswordLogedUser()
         if (itr -> downloadId() == idLogedUser)
         {
             itr -> setPassword (newPassword);
+
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
         }
     }
-    //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    userFile.changePassword(idLogedUser, newPassword);
     }
     else
     {

@@ -22,6 +22,7 @@ public:
 
     void addUserToFile(User user);
     vector <User> downloadUsersFormFile();
+    void changePassword(int idLogedUser, string newPassword);
 
 };
 #endif

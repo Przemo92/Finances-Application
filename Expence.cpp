@@ -1,6 +1,6 @@
 #include "Expence.h"
 
-void Expence::setId(int newId)
+/*void Expence::setId(int newId)
 {
     if (newId >= 0)
         id = newId;
@@ -43,4 +43,4 @@ string Expence::downloadItem()
 float Expence::downloadMoney()
 {
     return money;
-}
+}*/

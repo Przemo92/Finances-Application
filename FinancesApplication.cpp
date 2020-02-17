@@ -36,19 +36,19 @@ void FinancesApplication::mainMenu()
                 addIncome();
                 break;
             case '2':
-                //wyszukajAdresatowPoImieniu(adresaci);
+                addExpence();
                 break;
             case '3':
-               // wyszukajAdresatowPoNazwisku(adresaci);
+                balanceFromCurrentMonth();
                 break;
             case '4':
-                //wyswietlWszystkichAdresatow();
+                balanceFromLastMonth();
                 break;
             case '5':
-                 //usunAdresata();
+                 balanceFromSelectedPeroid();
                 break;
             case '6':
-                //zmianaHaslaZalogowanegoUzytkownika();
+                changePasswordLogedUser();
                 break;
             case '7':
                 userLogout();
@@ -61,7 +61,7 @@ void FinancesApplication::mainMenu()
 }
 void FinancesApplication::chooseFromMainMenu()
 {
-   // system("cls");
+    system("cls");
     cout << "    >>> MENU  GLOWNE <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Rejestracja" << endl;
@@ -87,7 +87,7 @@ void FinancesApplication::userLogin()
 void FinancesApplication::chooseOptionFromUserMenu()
 {
 
-    //system("cls");
+    system("cls");
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Dodaj przychod" << endl;
@@ -115,6 +115,18 @@ void FinancesApplication::addIncome()
         system("pause");
     }
 }
+void FinancesApplication::addExpence()
+{
+    if (userMeneger.isUserLoged())
+    {
+        expenceMeneger -> addExpence();
+    }
+    else
+    {
+        cout << "Aby dodac adresata nalezy najpierw sie zalogowac "<< endl;
+        system("pause");
+    }
+}
 void FinancesApplication::userLogout()
 {
     userMeneger.userLogout();
@@ -122,4 +134,78 @@ void FinancesApplication::userLogout()
     incomeMeneger = NULL;
     delete expenceMeneger;
     expenceMeneger = NULL;
+}
+void FinancesApplication::changePasswordLogedUser()
+{
+    userMeneger.changePasswordLogedUser();
+}
+void FinancesApplication::balanceFromCurrentMonth()
+{
+    system("cls");
+       if (userMeneger.isUserLoged())
+    {
+        cout << ">>> BILANS PRZYCHODOW Z TEGO MIESIACA <<<" << endl;
+        incomeMeneger -> showIncomesForThisMonth();
+        cout << "Suma przychodow w tym miesiacu wynosi: " << incomeMeneger -> downloadIncomesSum() << endl;
+        cout << "---------------------------------------" << endl;
+        cout << ">>> BILANS WYDATKOW Z TEGO MIESIACA <<<" << endl;
+        expenceMeneger -> showExpencesForThisMonth();
+        cout << "Suma wydatkow w tym miesiacu wynosi: " << expenceMeneger -> downloadExpencesSum() << endl;
+        cout << "---------------------------------------" << endl;
+        cout << "---------------------------------------" << endl;
+        cout << "Roznica miedzy przychodami i wydatkami: " << incomeMeneger -> downloadIncomesSum() - expenceMeneger -> downloadExpencesSum() << endl;
+        system("pause");
+    }
+    else
+    {
+        cout << "Aby dodac adresata nalezy najpierw sie zalogowac "<< endl;
+        system("pause");
+    }
+}
+void FinancesApplication::balanceFromLastMonth()
+{
+    system("cls");
+       if (userMeneger.isUserLoged())
+    {
+        cout << ">>> BILANS PRZYCHODOW Z POPRZEDNIEGO MIESIACA <<<" << endl;
+        incomeMeneger -> showIncomesForLastMonth();
+        cout << "Suma przychodow w poprzednim miesiacu wynosi: " << incomeMeneger -> downloadIncomesSum() << endl;
+        cout << "---------------------------------------" << endl;
+        cout << ">>> BILANS WYDATKOW Z POPRZEDNIEGO MIESIACA <<<" << endl;
+        expenceMeneger -> showExpencesForLastMonth();
+        cout << "Suma wydatkow w poprzednim miesiacu wynosi: " << expenceMeneger -> downloadExpencesSum() << endl;
+        cout << "---------------------------------------" << endl;
+        cout << "---------------------------------------" << endl;
+        cout << "Roznica miedzy przychodami i wydatkami: " << incomeMeneger -> downloadIncomesSum() - expenceMeneger -> downloadExpencesSum() << endl;
+        system("pause");
+    }
+    else
+    {
+        cout << "Aby dodac adresata nalezy najpierw sie zalogowac "<< endl;
+        system("pause");
+    }
+}
+void FinancesApplication::balanceFromSelectedPeroid()
+{
+    system("cls");
+       if (userMeneger.isUserLoged())
+    {
+
+        cout << ">>> BILANS PRZYCHODOW Z WYBRANEGO OKRESU <<<" << endl;
+        incomeMeneger -> showIncomesForSelectedPeroid();
+        cout << "Suma przychodow w wybranym okresie wynosi: " << incomeMeneger -> downloadIncomesSum() << endl;
+        cout << "---------------------------------------" << endl;
+        cout << ">>> BILANS WYDATKOW Z WYBRANEGO OKRESU <<<" << endl;
+        expenceMeneger -> showExpencesForSelectedPeroid();
+        cout << "Suma wydatkow w wybranym okresie wynosi: " << expenceMeneger -> downloadExpencesSum() << endl;
+        cout << "---------------------------------------" << endl;
+        cout << "---------------------------------------" << endl;
+        cout << "Roznica miedzy przychodami i wydatkami: " << incomeMeneger -> downloadIncomesSum() - expenceMeneger -> downloadExpencesSum() << endl;
+        system("pause");
+    }
+    else
+    {
+        cout << "Aby dodac adresata nalezy najpierw sie zalogowac "<< endl;
+        system("pause");
+    }
 }

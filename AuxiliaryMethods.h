@@ -13,7 +13,6 @@ class AuxiliaryMethods
     string changeIntIntoString (int number);
     string loadLinie();
     char getSign();
-    //string pobierzLiczbe(string tekst, int pozycjaZnaku);
     int changeStringIntoInt(string number);
     string changeFirstLetterIntoCapital(string text);
     float downloadFloatNumber();
