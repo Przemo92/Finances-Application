@@ -40,7 +40,7 @@ public:
     void showIncomesForThisMonth ();
     float downloadIncomesSum();
     void showIncomesForLastMonth();
-    void showIncomesForSelectedPeroid();
+    void showIncomesForSelectedPeroid(int date1ForSelectedPeroid, int date2ForSelectedPeroid);
 
 };
 #endif

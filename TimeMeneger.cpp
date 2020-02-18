@@ -179,19 +179,3 @@ int TimeMeneger::getSelectedData()
             cout << "Podales zle date. Spruboj ponownie" << endl;
     }
 }
-void TimeMeneger::setDate1ForSelectedPeroid(int date)
-{
-    date1ForSelectedPeroid = date;
-}
-void TimeMeneger::setDate2ForSelectedPeroid(int date)
-{
-    date2ForSelectedPeroid = date;
-}
-int TimeMeneger::getDate2ForSelectedPeroid()
-{
-    return date2ForSelectedPeroid;
-}
-int TimeMeneger::getDate1ForSelectedPeroid()
-{
-    return date1ForSelectedPeroid;
-}

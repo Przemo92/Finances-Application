@@ -5,13 +5,14 @@
 #include "IncomeMeneger.h"
 #include "ExpenceMeneger.h"
 #include "AuxiliaryMethods.h"
-
+#include "TimeMeneger.h"
 
 using namespace std;
 
 class FinancesApplication
 {
     AuxiliaryMethods auxiliaryMethods;
+    TimeMeneger timeMeneger;
     UserMeneger userMeneger;
     IncomeMeneger *incomeMeneger;
     ExpenceMeneger *expenceMeneger;

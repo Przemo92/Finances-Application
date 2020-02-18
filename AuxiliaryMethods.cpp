@@ -79,3 +79,17 @@ string AuxiliaryMethods::changeFloatToString(float number)
 
     return str;
 }
+/*int AuxiliaryMethods::getSelectedData()
+{
+    string date = "";
+    while (true)
+    {
+        cin >> date;
+        if (timeMeneger.isCorrectDate(date))
+        {
+           return timeMeneger.changeTextDateToInteger(date);
+        }
+        else
+            cout << "Podales zle date. Spruboj ponownie" << endl;
+    }
+}*/

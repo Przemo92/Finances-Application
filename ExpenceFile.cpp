@@ -25,7 +25,7 @@ vector <Expence> ExpenceFile::downloadExpencesFormFile(int idLogedUser)
             expence.setUserId(auxiliaryMethods.changeStringIntoInt(xml.GetData()));
             //cout<< expence.downloadUserId() <<endl;
             xml.FindElem();//date
-            expence.setDate(auxiliaryMethods.changeStringIntoInt(xml.GetData()));
+            expence.setDate(timeMeneger.changeTextDateToInteger(xml.GetData()));
             //cout<< expence.downloadDate() <<endl;
             xml.FindElem();//item
             expence.setItem(xml.GetData());
@@ -62,7 +62,7 @@ bool ExpenceFile::addExpenceToFile (Expence expence)
     xml.IntoElem();
     xml.AddElem("expenceId", auxiliaryMethods.changeIntIntoString(expence.downloadId()));
     xml.AddElem("userId", auxiliaryMethods.changeIntIntoString(expence.downloadUserId()));
-    xml.AddElem("date", auxiliaryMethods.changeIntIntoString(expence.downloadDate()));
+    xml.AddElem("date", timeMeneger.changeIntDateIntoString(expence.downloadDate()));
     xml.AddElem("item", expence.downloadItem());
     xml.AddElem("money", auxiliaryMethods.changeFloatToString(expence.downloadMoney()));
 

@@ -43,7 +43,7 @@ Expence ExpenceMeneger::writeNewExpence()
                 break;
             }
             else
-            cout << "Wpisales blednie date. Czy nadal chcesz skorzystac z dzsiejszej daty? (t/n)" << endl;
+                cout << "Wpisales blednie date. Czy nadal chcesz skorzystac z dzsiejszej daty? (t/n)" << endl;
         }
         else
         {
@@ -65,11 +65,14 @@ void ExpenceMeneger::showExpencesForThisMonth()
     vector <Expence> sortedExpences;
     for (int i=0; i < expences.size(); i++)
     {
-        if (getMonthWithYear(auxiliaryMethods.changeIntIntoString(expences[i].downloadDate())) == getMonthWithYear(getTodaysDate()))
+        if(expences[i].downloadUserId() == ID_LOGED_USER)
         {
-        sortedExpences.push_back(expences[i]);
+            if (getMonthWithYear(auxiliaryMethods.changeIntIntoString(expences[i].downloadDate())) == getMonthWithYear(getTodaysDate()))
+            {
+                sortedExpences.push_back(expences[i]);
 
-            expencesSum += expences[i].downloadMoney();
+                expencesSum += expences[i].downloadMoney();
+            }
         }
     }
     sort(sortedExpences.begin(), sortedExpences.end(), less_than_date());
@@ -85,44 +88,48 @@ void ExpenceMeneger::showExpencesForLastMonth()
     vector <Expence> sortedExpences;
     for (int i=0; i < expences.size(); i++)
     {
-        if (getMonthWithYear(auxiliaryMethods.changeIntIntoString(expences[i].downloadDate())) == getMonthWithYear(getLastMonthWithYear()))
+        if(expences[i].downloadUserId() == ID_LOGED_USER)
         {
-        sortedExpences.push_back(expences[i]);
+            if (getMonthWithYear(auxiliaryMethods.changeIntIntoString(expences[i].downloadDate())) == getMonthWithYear(getLastMonthWithYear()))
+            {
+                sortedExpences.push_back(expences[i]);
 
-            expencesSum += expences[i].downloadMoney();
+                expencesSum += expences[i].downloadMoney();
+            }
         }
     }
     sort(sortedExpences.begin(), sortedExpences.end(), less_than_date());
     showSortedExpences (sortedExpences);
 }
-void ExpenceMeneger::showExpencesForSelectedPeroid()
+void ExpenceMeneger::showExpencesForSelectedPeroid(int date1ForSelectedPeroid, int date2ForSelectedPeroid)
 {
     expencesSum = 0;
     vector <Expence> sortedExpences;
 
     for (int i=0; i < expences.size(); i++)
     {
-       if (expences[i].downloadDate() <= getDate2ForSelectedPeroid() && expences[i].downloadDate() >= getDate1ForSelectedPeroid())
+        if(expences[i].downloadUserId() == ID_LOGED_USER)
         {
-        sortedExpences.push_back(expences[i]);
+            if (expences[i].downloadDate() <= date2ForSelectedPeroid && expences[i].downloadDate() >= date1ForSelectedPeroid)
+            {
+                sortedExpences.push_back(expences[i]);
 
-            expencesSum += expences[i].downloadMoney();
+                expencesSum += expences[i].downloadMoney();
+            }
         }
     }
-       sort(sortedExpences.begin(), sortedExpences.end(), less_than_date());
-        showSortedExpences (sortedExpences);
-
-
+    sort(sortedExpences.begin(), sortedExpences.end(), less_than_date());
+    showSortedExpences (sortedExpences);
 }
 void ExpenceMeneger::showSortedExpences (vector <Expence> sortedExpences)
 {
-   for (int i=0; i < sortedExpences.size(); i++)
+    for (int i=0; i < sortedExpences.size(); i++)
     {
-            cout << "Numer ID wydatku: "      << sortedExpences[i].downloadId() << endl;
-            cout << "Numer ID uzytkownika: "    << sortedExpences[i].downloadUserId() << endl;
-            cout << "Data: "                    << changeIntDateIntoString(sortedExpences[i].downloadDate()) << endl;
-            cout << "Nazwa wydatku: "         << sortedExpences[i].downloadItem() << endl;
-            cout << "Wielkosc wydatku: "      << sortedExpences[i].downloadMoney() << endl;
-            cout << "---------------------------------" << endl;
+        cout << "Numer ID wydatku: "      << sortedExpences[i].downloadId() << endl;
+        cout << "Numer ID uzytkownika: "    << sortedExpences[i].downloadUserId() << endl;
+        cout << "Data: "                    << changeIntDateIntoString(sortedExpences[i].downloadDate()) << endl;
+        cout << "Nazwa wydatku: "         << sortedExpences[i].downloadItem() << endl;
+        cout << "Wielkosc wydatku: "      << sortedExpences[i].downloadMoney() << endl;
+        cout << "---------------------------------" << endl;
     }
 }

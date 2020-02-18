@@ -13,7 +13,6 @@ class TimeMeneger
 {
 AuxiliaryMethods auxiliaryMethods;
 int calculateDaysInMonth(int month, int year);
-int date1ForSelectedPeroid, date2ForSelectedPeroid;
 
 public:
     //TimeMeneger(){};
@@ -24,9 +23,6 @@ public:
     string changeIntDateIntoString(int date);
     string getLastMonthWithYear();
     int getSelectedData();
-    void setDate1ForSelectedPeroid(int date);
-    void setDate2ForSelectedPeroid(int date);
-    int getDate1ForSelectedPeroid();
-    int getDate2ForSelectedPeroid();
+
 };
 #endif

@@ -188,15 +188,20 @@ void FinancesApplication::balanceFromLastMonth()
 void FinancesApplication::balanceFromSelectedPeroid()
 {
     system("cls");
+    int date1ForSelectedPeroid, date2ForSelectedPeroid;
        if (userMeneger.isUserLoged())
     {
+        cout << "Podaj date w formacie rrrr-mm-dd, od ktorego chcesz zobaczyc bilans: " << endl;
+        date1ForSelectedPeroid = timeMeneger.getSelectedData();
+        cout << "Podaj date formacie rrrr-mm-dd, do ktorego chcesz zobaczyc bilans: " << endl;
+        date2ForSelectedPeroid = timeMeneger.getSelectedData();
 
         cout << ">>> BILANS PRZYCHODOW Z WYBRANEGO OKRESU <<<" << endl;
-        incomeMeneger -> showIncomesForSelectedPeroid();
+        incomeMeneger -> showIncomesForSelectedPeroid(date1ForSelectedPeroid, date2ForSelectedPeroid);
         cout << "Suma przychodow w wybranym okresie wynosi: " << incomeMeneger -> downloadIncomesSum() << endl;
         cout << "---------------------------------------" << endl;
         cout << ">>> BILANS WYDATKOW Z WYBRANEGO OKRESU <<<" << endl;
-        expenceMeneger -> showExpencesForSelectedPeroid();
+        expenceMeneger -> showExpencesForSelectedPeroid(date1ForSelectedPeroid, date2ForSelectedPeroid);
         cout << "Suma wydatkow w wybranym okresie wynosi: " << expenceMeneger -> downloadExpencesSum() << endl;
         cout << "---------------------------------------" << endl;
         cout << "---------------------------------------" << endl;

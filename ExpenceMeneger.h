@@ -39,6 +39,6 @@ public:
      float downloadExpencesSum();
      void showExpencesForThisMonth();
      void showExpencesForLastMonth();
-     void showExpencesForSelectedPeroid();
+     void showExpencesForSelectedPeroid(int date1ForSelectedPeroid, int date2ForSelectedPeroid);
 };
 #endif

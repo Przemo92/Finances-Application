@@ -25,7 +25,7 @@ vector <Income> IncomeFile::downloadIncomesFormFile(int idLogedUser)
             income.setUserId(auxiliaryMethods.changeStringIntoInt(xml.GetData()));
             //cout<< income.downloadUserId() <<endl;
             xml.FindElem();//date
-            income.setDate(auxiliaryMethods.changeStringIntoInt(xml.GetData()));
+            income.setDate(timeMeneger.changeTextDateToInteger(xml.GetData()));
             //cout<< income.downloadDate() <<endl;
             xml.FindElem();//item
             income.setItem(xml.GetData());
@@ -65,7 +65,7 @@ bool IncomeFile::addIncomeToFile (Income income)
     xml.IntoElem();
     xml.AddElem("incomeId", auxiliaryMethods.changeIntIntoString(income.downloadId()));
     xml.AddElem("userId", auxiliaryMethods.changeIntIntoString(income.downloadUserId()));
-    xml.AddElem("date", auxiliaryMethods.changeIntIntoString(income.downloadDate()));
+    xml.AddElem("date", timeMeneger.changeIntDateIntoString(income.downloadDate()));
     xml.AddElem("item", income.downloadItem());
     xml.AddElem("money", auxiliaryMethods.changeFloatToString(income.downloadMoney()));
 

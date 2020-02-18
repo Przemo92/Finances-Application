@@ -7,6 +7,7 @@
 #include "Expence.h"
 #include "AuxiliaryMethods.h"
 #include "Markup.h"
+#include "TimeMeneger.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class ExpenceFile
     int idLastExpence;
     CMarkup xml;
     AuxiliaryMethods auxiliaryMethods;
+    TimeMeneger timeMeneger;
 
 public:
     ExpenceFile(string nameFileWithExpences) : NAME_FILE_WITH_EXPENCES (nameFileWithExpences)

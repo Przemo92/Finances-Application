@@ -7,6 +7,7 @@
 #include "Income.h"
 #include "AuxiliaryMethods.h"
 #include "Markup.h"
+#include "TimeMeneger.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class IncomeFile
     int idLastIncome;
     CMarkup xml;
     AuxiliaryMethods auxiliaryMethods;
+    TimeMeneger timeMeneger;
 
 public:
     IncomeFile(string nameFileWithIncomes) : NAME_FILE_WITH_INCOMES (nameFileWithIncomes)
